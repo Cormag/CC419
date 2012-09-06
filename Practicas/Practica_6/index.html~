@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Practica 5</title>
+		<meta name="description" content="Inputs" />
+		<meta name="keywords" content="HTML, inputs" />
+		<meta name="author" content="Juan" />
+		<meta charset="UTF-8" />
+	</head>
+
+	<body>
+		<h1>Practica 6</h1>
+		<form method="post" action="file2.html">
+			<fieldset>
+				<legend>
+					Datos nuevo usuario
+				</legend>
+				<label for="nick">Nickname</label>
+				<input type="text" id="nick" name="nick" disabled="disabled" value="Cormag"/>
+				<br />
+				<label for="mail">Correo</label>
+				<input type="email" id="mail" name="mail" disabled="disabled" value="jualsi141290@hotmail.com"/>
+				<br />
+				<label for="contrasena">Contraseña</label>
+				<input type="password" id="contrasena" name="contrasena" disabled="disabled" value="Alguna1"/>
+			</fieldset>
+			<fieldset>
+				<legend>
+					Datos personales
+				</legend>
+				<label for="nombre">Nombre</label>
+				<input type="text" id="nombre" name="nombre" />
+				<br />
+				<label for="telefono">Teléfono</label>
+				<input type="tel" id="telefono" name="telefono" />
+				<br />
+				<label for="dir">Dirección</label>
+				<input type="text" id="dir" name="dir" />
+				<br />
+				<label for="fecha">Fecha de nacimiento</label>
+				<input type="date" id="fecha" name="fecha" />
+				<br />
+				<fieldset>
+					<legend>
+						Sexo
+					</legend>
+					<input type="radio" name="sexo" value="M"/>
+					Masculino
+					<br />
+					<input type="radio" name="sexo" value="F" />
+					Femenino
+				</fieldset>
+			</fieldset>
+			<fieldset>
+				<legend>
+					Intereses y confimacion
+				</legend>
+				<fieldset>
+					<legend>
+						Intereses
+					</legend>
+					<input type="checkbox" name="intereses" value="HTML5" />
+					Programacion en HTML5
+					<br />
+					<input type="checkbox" name="intereses" value="swl" />
+					Software Libre
+					<br />
+					<input type="checkbox" name="intereses" value="js" />
+					JavaScript
+					<br />
+					<input type="checkbox" name="intereses" value="js" />
+					Java
+				</fieldset>
+				<label for="foto">Foto personal</label>
+				<input id="foto" type="file" accept="image/*" />
+				<br />
+				<label for="confirma">Confirma Contraseña</label>
+				<input type="password" id="confirma" name="confirma" />
+			</fieldset>
+			<button type="submit">
+				Enviar
+			</button>
+			<button type="reset">
+				Limpiar
+			</button>
+		</form>
+	</body>
+</html>
