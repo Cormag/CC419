@@ -1,0 +1,95 @@
+
+
+.cabecera
+{
+background:blue;
+width:800px;
+height:430px;
+border-color: gray;
+border-style:groove;
+}
+
+.titulo{
+color: white;
+font-weight: normal;
+font-family:Helvetica, sans-serif;
+margin-top: -300px;
+margin-left: 400px;
+}
+
+.imagen
+{ 
+width:200px;
+height:300px;
+background:blue;
+padding:2em;
+border-color: gray;
+}
+
+body{
+background-image: url("http://trasgotauro.files.wordpress.com/2009/08/plantilla-fondo-ichar.jpg");
+width:1300px;
+height:1000px;
+margin-top: 1em;
+margin-right: 1em;
+margin-bottom: 1em;
+margin-left: 1em;
+border-top-width: 10px; 
+border-right-width: 10px; 
+border-bottom-width: 10px; 
+border-left-width: 10px; 
+border-color: gray;
+border-style:groove;
+}
+
+aside{
+background-image:url("http://behance.vo.llnwd.net/profiles18/401131/projects/1237471/1befc8bfcdbae7d0ffc4adf23ff2996f.jpg");
+width:400px;
+height:800px;
+margin-top: -820px;
+margin-right: 1em;
+margin-bottom: 1em;
+margin-left: 840px;
+border-color: gray;
+border-style:groove;
+}
+
+footer
+{
+color: white;
+font-weight: normal;
+text-align: center;
+background:black;
+width:500px;
+height:20px;
+margin-top: 1px;
+margin-right: 1em;
+margin-bottom: 1em;
+margin-left: 20px;
+border-color: gray;
+border-style:groove;
+}
+
+article
+{
+width:780px;
+height:400px;
+margin-top: 10px;
+margin-right: 1em;
+margin-bottom: 1em;
+margin-left: 20px;
+border-color: gray;
+border-style:groove;
+}
+
+section
+{
+width:700px;
+height:340px;
+margin-top: 1em;
+margin-right: 1em;
+margin-bottom: 1em;
+margin-left: 1em;
+border-color: gray;
+border-style:groove;
+}
