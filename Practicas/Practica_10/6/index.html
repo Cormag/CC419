@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Practica 6</title>
+		<meta name="description" content="Inputs" />
+		<meta name="keywords" content="HTML, inputs" />
+		<meta name="author" content="Juan" />
+		<meta charset="UTF-8" />
+		
+		<style type="text/css">
+        	#error_nom, #error_tel, #error_dir, #error_f, #error_s, #error_i, #error_foto, #error_c{
+      			display:none;
+      			background-color:#ED2B2B;
+      			width:300px;
+      			height:20px;
+      			text-align:center;
+        	}
+        </style>
+		
+		<script type="text/javascript">
+			function validaFormulario(){
+				var valRet;
+				var nomb = /^[\w ]+$/;
+				var telefono = /^\d{2}-\d{2}-\d{2}-\d{2}(-\d\d)?$/;
+				var fecha = /^\d{2}\/\d{2}\/\d{4}$/;
+				var imagen = /^.+\.(jpg|png|gif|bmp|jpe|jpeg)$/;
+				
+				document.getElementById('error_nom').style.display='none';
+				document.getElementById('error_tel').style.display='none';
+				document.getElementById('error_dir').style.display='none';
+				document.getElementById('error_f').style.display='none';
+				document.getElementById('error_s').style.display='none';
+				document.getElementById('error_i').style.display='none';
+				document.getElementById('error_foto').style.display='none';
+				document.getElementById('error_c').style.display='none';
+				
+	        	if(registro.nombre.value.length==0||!registro.nombre.value.match(nomb))
+				{
+	        		document.getElementById('error_nom').style.display='block';
+					if(!registro.nombre.value.match(nomb))
+						document.getElementById('error_nom').innerHTML = "Caracteres invalidos.";
+					if(registro.nombre.value.length==0)
+						document.getElementById('error_nom').innerHTML = "Ingresa tu nombre.";
+	        		registro.nombre.focus();
+	        		valRet = false;
+	        	}
+				
+				if(registro.telefono.value.length==0||!registro.telefono.value.match(telefono))
+				{
+					document.getElementById('error_tel').style.display='block';
+					if(!registro.telefono.value.match(telefono))
+						document.getElementById('error_tel').innerHTML = "Formato incorrecto, ingresa xx-xx-... 8 a 10 digitos.";
+					if(registro.telefono.value.length==0)
+						document.getElementById('error_tel').innerHTML = "Ingresa un telefono.";
+					registro.telefono.focus();
+	        		valRet = false;
+				}
+				
+				if(registro.dir.value.length==0)
+				{
+					document.getElementById('error_dir').style.display='block';
+	        		document.getElementById('error_dir').innerHTML = "Ingresa tu dirección.";
+	        		registro.dir.focus();
+	        		valRet = false;
+				}
+				
+				if(registro.fecha.value.length==0||!registro.fecha.value.match(fecha))
+				{
+					document.getElementById('error_f').style.display='block';
+					if(!registro.fecha.value.match(fecha))
+						document.getElementById('error_f').innerHTML = "Formato incorrecto, dd/mm/aaaa.";
+					if(registro.fecha.value.length==0)
+						document.getElementById('error_f').innerHTML = "Ingresa tu fecha de nacimiento.";
+					registro.fecha.focus();
+	        		valRet = false;
+				}
+				
+				if(!document.registro.sexo[0].checked&&!document.registro.sexo[1].checked)
+				{
+					document.getElementById('error_s').style.display='block';
+					document.getElementById('error_s').innerHTML = "Selecciona tu sexo.";
+	        		valRet = false;
+				}
+				
+				if(!document.registro.intereses[0].checked&&!document.registro.intereses[1].checked&&!document.registro.intereses[2].checked&&!document.registro.intereses[3].checked)
+				{
+					document.getElementById('error_i').style.display='block';
+					document.getElementById('error_i').innerHTML = "Selecciona almenos un interes.";
+	        		valRet = false;
+				}
+				
+				if(registro.foto.value==""||!registro.foto.value.match(imagen))
+				{
+					document.getElementById('error_foto').style.display='block';
+					if(registro.foto.value=="")
+						document.getElementById('error_foto').innerHTML = "Selecciona una foto.";
+					if(!registro.foto.value.match(imagen))
+						document.getElementById('error_foto').innerHTML = "Formatos aceptados: (jpg,png,gif,bmp,jpe,jpeg)";
+	        		valRet = false;
+				}
+				
+				if(registro.confirma.value.length==0||(registro.contrasena.value != registro.confirma.value))
+				{
+	        		document.getElementById('error_c').style.display='block';
+					if(registro.confirma.value.length==0)
+						document.getElementById('error_c').innerHTML = "Confirma tu contraseña";
+					if(registro.contrasena.value != registro.confirma.value)
+						document.getElementById('error_c').innerHTML = "Las contraseñas no coinciden";
+	        		registro.confirma.focus();
+	        		valRet = false;
+	        	}
+				
+				return valRet;
+				}
+	        	
+			
+        </script>
+	</head>
+
+	<body>
+		<h1>Practica 6</h1>
+		<form name="registro" method="post" action="file2.html" onSubmit="return validaFormulario();">	
+			<fieldset>
+				<legend>
+				Datos nuevo usuario
+				</legend>
+				<label for="nick">Nickname</label>
+				<input type="text" id="nick" name="nick" disabled="disabled" value="Cormag"/>
+				<br />
+				<label for="mail">Correo</label>
+				<input type="email" id="mail" name="mail" disabled="disabled" value="jualsi141290@hotmail.com"/>
+				<br />
+				<label for="contrasena">Contraseña</label>
+				<input type="password" id="contrasena" name="contrasena" disabled="disabled" value="Alguna1"/>
+			</fieldset>
+			<fieldset>
+				<legend>
+				Datos personales
+				</legend>
+				<label for="nombre">Nombre</label>
+				<input type="text" id="nombre" name="nombre" />
+				<div id="error_nom">nombre</div>
+				<br />
+				<label for="telefono">Teléfono</label>
+				<input type="tel" id="telefono" name="telefono" />
+				<div id="error_tel">telefono</div>
+				<br />
+				<label for="dir">Dirección</label>
+				<input type="text" id="dir" name="dir" />
+				<div id="error_dir">direccion</div>
+				<br />
+				<label for="fecha">Fecha de nacimiento</label>
+				<input type="date" id="fecha" name="fecha" />
+				<div id="error_f">fecha</div>
+				<br />
+				<fieldset>
+					<legend>
+					Sexo
+					</legend>
+					<input type="radio" name="sexo" value="M" />
+					Masculino
+					<br />
+					<input type="radio" name="sexo" value="F" />
+					Femenino
+					<div id="error_s">sexo</div>
+				</fieldset>
+			</fieldset>
+			<fieldset>
+				<legend>
+				Intereses y confimacion
+				</legend>
+				<fieldset>
+				<legend>
+				Intereses
+				</legend>
+				<ol>
+				<li><input type="checkbox" name="intereses" value="HTML5" />
+				Programacion en HTML5</li>
+				<li><input type="checkbox" name="intereses" value="swl" />
+				Software Libre</li>
+				<li><input type="checkbox" name="intereses" value="js" />
+				JavaScript</li>
+				<li><input type="checkbox" name="intereses" value="js" />
+				Java</li>
+				</ol>
+				<div id="error_i">intereses</div>
+			</fieldset>
+				<label for="foto">Foto personal</label>
+				<input id="foto" name="foto" type="file" accept="image/*" />
+				<div id="error_foto">foto</div>
+				<br />
+				<label for="confirma">Confirma Contraseña</label>
+				<input type="password" id="confirma" name="confirma" />
+				<div id="error_c">confirma</div>
+			</fieldset>
+			<button type="submit">
+			Enviar
+			</button>
+			<button type="reset">
+			Limpiar
+			</button>
+		</form>
+	</body>
+</html>
