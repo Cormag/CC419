@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Practica 5</title>
+        <meta name="description" content="Inputs" />
+        <meta name="keywords" content="HTML, inputs" />
+        <meta name="author" content="Juan" />
+        <meta charset="UTF-8" />
+        <style type="text/css">
+            #error_nom, #error_mail, #error_pass, #error_pass_c {
+                display: none;
+                background-color: #ED2B2B;
+                width: 300px;
+                height: 20px;
+                text-align: center;
+            }
+        </style>
+		<script type="text/javascript" src="js/lib.min.js"></script>
+        <script type="text/javascript">
+            function validaFormulario(){
+                var valRet=true;
+                var correo = /^[0-9a-zA-Z_\-\.]+@[0-9a-zA-Z\-\.]+\.[a-zA-Z]{2,4}$/;
+                
+                document.getElementById('error_nom').style.display = 'none';
+                document.getElementById('error_mail').style.display = 'none';
+                document.getElementById('error_pass').style.display = 'none';
+                document.getElementById('error_pass_c').style.display = 'none';
+                
+                if (registro.nombre.value.length == 0) {
+                    document.getElementById('error_nom').style.display = 'block';
+                    document.getElementById('error_nom').innerHTML = "El campo Nick debe tener un valor.";
+                    registro.nombre.focus();
+                    valRet = false;
+                }
+                else 
+                    if (registro.nombre.value.length < 4 || registro.nombre.value.length > 10) {
+                        document.getElementById('error_nom').style.display = 'block';
+                        document.getElementById('error_nom').innerHTML = "El Nick debe contener de 4 a 10 caracteres.";
+                        registro.nombre.focus();
+                        valRet = false;
+                    }
+                    else 
+                        if (registro.nombre.value.split(" ").length > 1) {
+                            document.getElementById('error_nom').style.display = 'block';
+                            document.getElementById('error_nom').innerHTML = "El Nick no debe contener espacios.";
+                            registro.nombre.focus();
+                            valRet = false;
+                        }
+                if (registro.mail.value.length == 0) {
+                    document.getElementById('error_mail').style.display = 'block';
+                    document.getElementById('error_mail').innerHTML = "Introdusca un correo electronico.";
+                    registro.nombre.focus();
+                    valRet = false;
+                }
+                else 
+                    if (!registro.mail.value.match(correo)) {
+                        document.getElementById('error_mail').style.display = 'block';
+                        document.getElementById('error_mail').innerHTML = "E-mail inválido";
+                        registro.mail.focus();
+                        valRet = false;
+                    }
+                
+                if (registro.contrasena.value.length < 8 || registro.contrasena.value.length > 32) {
+                    document.getElementById('error_pass').style.display = 'block';
+                    document.getElementById('error_pass').innerHTML = "Introduce una contraseña de 8 a 32 caracteres";
+                    registro.contrasena.focus();
+                    valRet = false;
+                }
+                
+                if (registro.confirma.value.length == 0) {
+                    document.getElementById('error_pass_c').style.display = 'block';
+                    document.getElementById('error_pass_c').innerHTML = "Confirma tu contraseña";
+                    registro.confirma.focus();
+                    valRet = false;
+                }
+                else 
+                    if (registro.contrasena.value != registro.confirma.value) {
+                        document.getElementById('error_pass_c').style.display = 'block';
+                        document.getElementById('error_pass_c').innerHTML = "Las contraseñas no coinciden";
+                        registro.confirma.focus();
+                        valRet = false;
+                    }
+				if(valRet)
+				{
+					registro.pass_md5.value=md5(registro.confirma.value);
+					registro.contrasena.value="";
+					
+					registro.confirma.value="";
+				}
+				
+                return valRet;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Practica 5</h1>
+        <form name="registro" method="get" action="file2.html" onSubmit="return validaFormulario();">
+            <fieldset>
+                <legend>
+                    Nuevo usuario
+                </legend>
+                <label for="nombre">
+                    Nickname
+                </label>
+                <input type="text" id="nombre" name="nombre" />
+                <div id="error_nom">
+                    nombre
+                </div>
+                <br/>
+                <label for="mail">
+                    Correo
+                </label>
+                <input type="email" id="mail" name="mail" />
+                <div id="error_mail">
+                    mail
+                </div>
+                <br/>
+                <label for="contrasena">
+                    Contraseña
+                </label>
+                <input type="password" id="contrasena" name="contrasena" />
+                <div id="error_pass">
+                    pass
+                </div>
+                <br/>
+                <label for="confirma">
+                    Confirma Contraseña
+                </label>
+                <input type="password" id="confirma" name="confirma" />
+                <div id="error_pass_c">
+                    pass_c
+                </div>
+				<input type="hidden" id="pass_md5" name="pass_md5" />
+                <br/>
+                <button type="submit">
+                    Enviar
+                </button>
+            </fieldset>
+        </form>
+    </body>
+</html>

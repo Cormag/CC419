@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>Practica 3</title>
+		<meta name="description" content="Practica 3:Tablas" />
+		<meta name="keywords" content="HTML,Tablas" />
+		<meta name="author" content="Juan" />
+		<meta charset="UTF-8" />
+		<link type="text/javascript" href="tablas.js"/>
+    </head>
+    <body>
+        <h1>New Web Project Page</h1>
+    </body>
+</html>
